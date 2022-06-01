@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Consumindo API com Javascript puro</title>
+
+        <link rel="stylesheet" href="./assets/css/style.css" />
+    </head>
+
+    <body>
+        <main id="main">
+            <header class="header">
+                <div class="wrapper">
+                    <h1>Consumindo API de CEP com Javascript puro</h1>
+                    <p>*Formulário possui preenchimento automático*</p>
+                </div>
+            </header>
+
+            <section class="section-form">
+                <div class="wrapper">
+                    <form class="form">
+                        <div class="col-a">
+                            <label
+                                >Cep:
+                                <input
+                                    type="text"
+                                    id="cep"
+                                    name="cep"
+                                    maxlength="8"
+                                    onkeypress="return OnlyNumbers(event)" placeholder="Digite o CEP"
+                                />
+                            </label>
+                            <label
+                                >Rua:
+                                <input name="rua" type="text" id="rua" />
+                            </label>
+                            <label
+                                >Bairro:
+                                <input name="bairro" type="text" id="bairro" />
+                            </label>
+                        </div>
+
+                        <div class="col-b">
+                            <label
+                                >Cidade:
+                                <input name="cidade" type="text" id="cidade" />
+                            </label>
+                            <label
+                                >Estado:
+                                <input name="uf" type="text" id="uf" />
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <script src="./assets/js/script.js"></script>
+    </body>
+</html>

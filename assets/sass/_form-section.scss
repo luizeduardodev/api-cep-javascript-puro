@@ -1,0 +1,78 @@
+@use "mixin";
+
+.section-form {
+    @include mixin.displayFlex;
+
+    width: 100%;
+    padding-top: 10rem;
+
+    @include mixin.md(425px) {
+        padding-top: 2rem;
+    }
+
+    .wrapper {
+        @include mixin.limitWidth;
+
+        .form {
+            width: 100%;
+
+            @include mixin.displayFlex;
+            flex-direction: column;
+            gap: 3rem;
+
+            @include mixin.md(425px) {
+                gap: 0;
+            }
+
+            .col-a {
+                @include mixin.displayFlex;
+                @include mixin.widthGap;
+
+                @include mixin.md(425px) {
+                    @include mixin.configMd;
+                }
+
+                label {
+                    @include mixin.label;
+
+                    @include mixin.md(425px) {
+                        @include mixin.labelMd;
+                    }
+
+                    input {
+                        @include mixin.input;
+
+                        @include mixin.md(425px) {
+                            font-size: 1.7rem;
+                        }
+                    }
+                }
+            }
+
+            .col-b {
+                @include mixin.displayFlex;
+                @include mixin.widthGap;
+
+                @include mixin.md(425px) {
+                    @include mixin.configMd;
+                }
+
+                label {
+                    @include mixin.label;
+
+                    @include mixin.md(425px) {
+                        @include mixin.labelMd;
+                    }
+
+                    input {
+                        @include mixin.input;
+
+                        @include mixin.md(425px) {
+                            font-size: 1.7rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
