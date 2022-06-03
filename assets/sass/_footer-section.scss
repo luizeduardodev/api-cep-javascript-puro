@@ -1,0 +1,46 @@
+@use "variables";
+@use "mixin";
+
+.footer {
+    width: 100%;
+
+    padding-top: 4rem;
+
+    @include mixin.md(425px) {
+        padding-top: 3rem;
+    }
+
+    @include mixin.md(375px) {
+        padding-top: 4rem;
+    }
+
+    .wrapper {
+        @include mixin.displayFlex(flex, center, center);
+        @include mixin.limitWidth;
+
+        p {
+            font-size: 1.8rem;
+
+            color: variables.$text-color;
+
+            @include mixin.md(375px) {
+                font-size: 1.6rem;
+            }
+
+            @include mixin.md(320px) {
+                font-size: 1.5rem;
+            }
+
+            a {
+                color: variables.$text-color;
+
+                text-decoration: none;
+                transition: 0.3s;
+
+                &:hover {
+                    color: variables.$primary-color;
+                }
+            }
+        }
+    }
+}
