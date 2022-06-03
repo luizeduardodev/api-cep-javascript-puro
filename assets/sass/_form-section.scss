@@ -1,74 +1,192 @@
 @use "mixin";
+@use "variables";
+
+.input-design {
+    width: 100%;
+
+    padding: 1rem;
+    margin-top: 0.3rem;
+    font-size: 1.8rem;
+
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid variables.$primary-color;
+    color: variables.$text-color;
+
+    font-weight: bold;
+    outline: none;
+    transition: border-color 0.5s;
+
+    &::placeholder {
+        color: variables.$text-color;
+        opacity: 0.5;
+    }
+
+    &:focus {
+        border-bottom: 2px solid variables.$text-color;
+    }
+}
+
+.line-design {
+    @include mixin.displayFlex(flex, flex-start, center);
+    flex-direction: column;
+    gap: 5rem;
+
+    padding-left: 3rem;
+}
+
+.label-design {
+    width: 90%;
+    font-size: 1.8rem;
+    color: variables.$text-color;
+}
 
 .section-form {
-    @include mixin.displayFlex;
-
     width: 100%;
-    padding-top: 10rem;
+    padding-top: 5rem;
+
+    @include mixin.md(768px) {
+        padding-top: 4rem;
+    }
 
     @include mixin.md(425px) {
-        padding-top: 2rem;
+        padding-top: 2.5rem;
     }
 
     .wrapper {
+        @include mixin.displayFlex(flex, center, space-between);
         @include mixin.limitWidth;
 
-        .form {
-            width: 100%;
-
-            @include mixin.displayFlex;
+        @include mixin.md(768px) {
             flex-direction: column;
-            gap: 3rem;
+        }
+
+        .img-illustration {
+            width: 35%;
+
+            img {
+                width: 100%;
+
+                cursor: pointer;
+
+                animation: pulse 5s infinite;
+
+                &:hover {
+                    animation: vibrate 0.3s infinite;
+                }
+
+                @keyframes pulse {
+                    0% {
+                        transform: translateY(0);
+                    }
+                    50% {
+                        transform: translateY(-10px);
+                    }
+                    100% {
+                        transform: translateY(0);
+                    }
+                }
+
+                @keyframes vibrate {
+                    0% {
+                        transform: rotate(0);
+                    }
+                    25% {
+                        transform: rotate(-3deg);
+                    }
+                    50% {
+                        transform: rotate(3deg);
+                    }
+                    75% {
+                        transform: rotate(-3deg);
+                    }
+                    100% {
+                        transform: rotate(3deg);
+                    }
+                }
+
+                @include mixin.md(768px) {
+                    display: none;
+                }
+            }
+        }
+
+        .form {
+            @include mixin.displayFlex(flex, center, center);
+
+            width: 60%;
+            height: 42rem;
+
+            border-radius: 0.8rem;
+
+            background-color: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 4rem rgba(0, 0, 0, 0.5);
+
+            @include mixin.md(768px) {
+                width: 90%;
+            }
 
             @include mixin.md(425px) {
-                gap: 0;
+                height: 43rem;
+                gap: 1.5rem;
+                flex-direction: column;
+            }
+
+            @include mixin.md(375px) {
+                gap: 1.3rem;
             }
 
             .col-a {
-                @include mixin.displayFlex;
-                @include mixin.widthGap;
+                width: 50%;
 
                 @include mixin.md(425px) {
-                    @include mixin.configMd;
+                    width: 90%;
+                    gap: 1.5rem;
+                    padding-left: 0rem;
+                }
+
+                @include mixin.md(375px) {
+                    width: 100%;
+                    gap: 1.3rem;
+                    padding-left: 2rem;
                 }
 
                 label {
-                    @include mixin.label;
-
-                    @include mixin.md(425px) {
-                        @include mixin.labelMd;
-                    }
-
                     input {
-                        @include mixin.input;
-
                         @include mixin.md(425px) {
                             font-size: 1.7rem;
+                        }
+
+                        @include mixin.md(375px) {
+                            font-size: 1.5rem;
                         }
                     }
                 }
             }
 
             .col-b {
-                @include mixin.displayFlex;
-                @include mixin.widthGap;
+                width: 50%;
 
                 @include mixin.md(425px) {
-                    @include mixin.configMd;
+                    width: 90%;
+                    gap: 1.5rem;
+                    padding-left: 0rem;
+                }
+
+                @include mixin.md(375px) {
+                    width: 100%;
+                    gap: 1.3rem;
+                    padding-left: 2rem;
                 }
 
                 label {
-                    @include mixin.label;
-
-                    @include mixin.md(425px) {
-                        @include mixin.labelMd;
-                    }
-
                     input {
-                        @include mixin.input;
-
                         @include mixin.md(425px) {
                             font-size: 1.7rem;
+                        }
+
+                        @include mixin.md(375px) {
+                            font-size: 1.5rem;
                         }
                     }
                 }
