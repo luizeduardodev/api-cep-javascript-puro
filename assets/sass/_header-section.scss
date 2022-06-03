@@ -1,38 +1,67 @@
 @use "mixin";
+@use "variables";
 
 #main {
-    background-color: rgb(72, 72, 72);
-    height: 100vh;
+    min-height: 100vh;
+
+    background-color: variables.$bg-color;
 
     .header {
-        padding-top: 5rem;
+        padding-top: 3rem;
+
+        @include mixin.md(425px) {
+            padding-top: 1.5rem;
+        }
 
         .wrapper {
+            @include mixin.displayFlex(flex, center, center);
             @include mixin.limitWidth;
-            @include mixin.displayFlex;
-            flex-direction: column;
-            gap: 1rem;
 
-            @include mixin.md(425px) {
-                text-align: center;
-            }
+            flex-direction: column;
+            gap: 0.8rem;
+            text-align: center;
 
             h1 {
                 font-size: 3rem;
-                color: #fff;
+
                 font-weight: bold;
+                color: variables.$text-color;
+
+                @include mixin.md(768px) {
+                    font-size: 2.9rem;
+                }
 
                 @include mixin.md(425px) {
-                    font-size: 2.5rem;
+                    font-size: 2.3rem;
+                }
+
+                @include mixin.md(375px) {
+                    font-size: 2.1rem;
+                }
+
+                @include mixin.md(320px) {
+                    font-size: 1.9rem;
                 }
             }
 
-            p {
-                font-size: 1.5rem;
-                color: #fff;
+            small {
+                max-width: 50rem;
+
+                text-align: center;
+                color: variables.$text-color;
 
                 @include mixin.md(425px) {
-                    font-size: 1.4rem;
+                    max-width: 35rem;
+                    font-size: 1.2rem;
+                }
+
+                @include mixin.md(375px) {
+                    font-size: 1.1rem;
+                }
+
+                @include mixin.md(320px) {
+                    font-size: 1rem;
+                    max-width: 25rem;
                 }
             }
         }
