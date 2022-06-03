@@ -1,58 +1,17 @@
+@mixin displayFlex($display, $align, $justify) {
+    display: $display;
+    align-items: $align;
+    justify-content: $justify;
+}
+
 @mixin limitWidth {
     width: 100%;
-    max-width: 98rem;
+    max-width: 120rem;
     margin: 0 auto;
-}
-
-@mixin displayFlex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-@mixin widthGap {
-    width: 100%;
-    gap: 5rem;
-    padding: 1rem;
-}
-
-@mixin label {
-    font-size: 1.9rem;
-    color: #fff;
-}
-
-@mixin input {
-    width: 100%;
-
-    padding: 1rem;
-    margin-top: 1rem;
-
-    border-radius: 0.4rem;
-    font-size: 1.8rem;
-    border: 1px solid #fff;
-
-    outline: none;
-    transition: 0.5s;
-
-    &:focus {
-        border: 1px solid rgb(255, 0, 0);
-    }
 }
 
 @mixin md($width: 0px) {
     @media screen and (max-width: $width) {
         @content;
     }
-}
-
-@mixin configMd {
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: baseline;
-    padding-inline: 3rem;
-}
-
-@mixin labelMd {
-    width: 100%;
-    font-size: 1.8rem;
 }
