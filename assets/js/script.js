@@ -27,7 +27,21 @@ const OnlyNumbers = (e) => {
             return false;
         }
     }
-}
+};
+
+const time = () => {
+    setTimeout(() => {
+        clearField();
+    }, 2000);
+};
+
+const showAddress = (data) => {
+    const cep = (getElementsViaId("cep").value = data.cep);
+    const rua = (getElementsViaId("rua").value = data.logradouro);
+    const bairro = (getElementsViaId("bairro").value = data.bairro);
+    const cidade = (getElementsViaId("cidade").value = data.localidade);
+    const estado = (getElementsViaId("uf").value = data.uf);
+};
 
 //fetch api with async and await;
 const consultAddress = async () => {
@@ -36,13 +50,21 @@ const consultAddress = async () => {
 
     if (cep.length !== 8 || cep == "") {
         clearField();
-        alert("CEP inválido");
-        return;
+        const rua = (getElementsViaId("rua").value = "CEP incorreto");
+        time();
+    } else {
+        const dataApi = await fetch(url);
+        const data = await dataApi.json();
+
+        if (data.erro) {
+            const rua = (getElementsViaId("rua").value = "CEP não encontrado");
+            time();
+        } else {
+            showAddress(data);
+        }
     }
 
-    const dataApi = await fetch(url);
-    const data = await dataApi.json();
-    showAddress(data);
+    //Sem utilizar o async e await;
 
     // fetch(url).then((response) => {
     //    response.json().then((data) => {
@@ -51,23 +73,3 @@ const consultAddress = async () => {
     //  });
 };
 cep.addEventListener("focusout", consultAddress);
-
-const showAddress = (data) => {
-    const cep = getElementsViaId("cep");
-    const rua = getElementsViaId("rua");
-    const bairro = getElementsViaId("bairro");
-    const cidade = getElementsViaId("cidade");
-    const estado = getElementsViaId("uf");
-
-    if (data.erro) {
-        //Verificando se teve erro;
-        clearField();
-        alert("Não foi possível localizar o CEP informado");
-    } else {
-        cep.value = data.cep;
-        rua.value = data.logradouro;
-        bairro.value = data.bairro;
-        cidade.value = data.localidade;
-        estado.value = data.uf;
-    }
-};
