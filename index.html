@@ -2,11 +2,12 @@
 
 <html lang="pt-br">
     <head>
+        <title>Consumindo API com Javascript puro</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Consumindo API com Javascript puro</title>
 
         <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="icon" href="" />
     </head>
 
     <body>
@@ -14,47 +15,46 @@
             <header class="header">
                 <div class="wrapper">
                     <h1>Consumindo API de CEP com Javascript puro</h1>
-                    <p>*Formulário possui preenchimento automático*</p>
+                    <small><i>OBS: </i>O Formulário possui preenchimento automático, basta clicar em outro campo ou fora dele que ele vai auto-completar.</small>
                 </div>
             </header>
 
             <section class="section-form">
                 <div class="wrapper">
+                    <div class="img-illustration">
+                        <img src="./assets/img/imagem-prancha-cadastro.png" alt="imagem de formulario">
+                    </div>
+
                     <form class="form">
-                        <div class="col-a">
-                            <label
-                                >Cep:
-                                <input
-                                    type="text"
-                                    id="cep"
-                                    name="cep"
-                                    maxlength="8"
-                                    onkeypress="return OnlyNumbers(event)" placeholder="Digite o CEP"
-                                />
-                            </label>
-                            <label
-                                >Rua:
-                                <input name="rua" type="text" id="rua" />
-                            </label>
-                            <label
-                                >Bairro:
-                                <input name="bairro" type="text" id="bairro" />
-                            </label>
+                        <div class="col-a line-design">
+                                <label class="label-design">Cep:
+                                    <input type="text" class="input-design" id="cep" name="cep" maxlength="8" onkeypress="return OnlyNumbers(event)" placeholder="Digite o CEP" />
+                                </label>
+                                <label class="label-design">Bairro:
+                                    <input class="input-design" name="bairro" type="text" id="bairro" />
+                                </label>
+                                <label class="label-design">Cidade:
+                                    <input class="input-design" name="cidade" type="text" id="cidade" />
+                                </label>
                         </div>
 
-                        <div class="col-b">
-                            <label
-                                >Cidade:
-                                <input name="cidade" type="text" id="cidade" />
+                        <div class="col-b line-design">
+                            <label class="label-design">Rua:
+                                <input class="input-design" name="rua" type="text" id="rua" />
                             </label>
-                            <label
-                                >Estado:
-                                <input name="uf" type="text" id="uf" />
+                            <label class="label-design">Estado:
+                                <input class="input-design" name="uf" type="text" id="uf" />
                             </label>
                         </div>
                     </form>
                 </div>
             </section>
+
+            <footer class="footer">
+                <div class="wrapper">
+                    <p>Feito com &hearts; por <a href="https://www.instagram.com/luizz_edduardoo_/" target="_blank"><strong>Luiz Eduardo</strong></a></p>
+                </div>
+            </footer>
         </main>
 
         <script src="./assets/js/script.js"></script>
