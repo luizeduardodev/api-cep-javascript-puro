@@ -9,11 +9,11 @@ const getElementsViaId = (element, value) => {
 };
 
 const clearField = () => {
-    const cep = (getElementsViaId("cep").value = "");
-    const rua = (getElementsViaId("rua").value = "");
-    const bairro = (getElementsViaId("bairro").value = "");
-    const cidade = (getElementsViaId("cidade").value = "");
-    const estado = (getElementsViaId("uf").value = "");
+    const input = document.querySelectorAll(".form input");
+
+    input.forEach((input) => {
+        input.value = "";
+    });
 };
 
 const OnlyNumbers = (e) => {
@@ -57,6 +57,7 @@ const consultAddress = async () => {
         const data = await dataApi.json();
 
         if (data.erro) {
+            clearField();
             const rua = (getElementsViaId("rua").value = "CEP não encontrado");
             time();
         } else {
@@ -65,7 +66,6 @@ const consultAddress = async () => {
     }
 
     //Sem utilizar o async e await;
-
     // fetch(url).then((response) => {
     //    response.json().then((data) => {
     //         // showAddress(data);
