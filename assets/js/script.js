@@ -72,4 +72,5 @@ const consultAddress = async () => {
     //     });
     //  });
 };
+
 cep.addEventListener("focusout", consultAddress);
